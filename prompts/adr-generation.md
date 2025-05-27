@@ -1,6 +1,6 @@
 # ADR Generation Prompt
 
-Use this prompt with Claude to research options, explore considerations, and generate a complete ADR for your project.
+Use this prompt with Claude to research options, build a systematic comparison, and generate a complete ADR for your project.
 
 ## Main Prompt Template
 
@@ -18,17 +18,19 @@ I need help making a decision for my project and creating an ADR to document it.
 **Constraints:** [Any limitations - space, power, existing hardware, technical skills, budget range]
 
 Please help me by:
-1. Researching and presenting the main options available
-2. Walking through the key considerations and trade-offs
-3. Helping me think through the pros/cons of each option
-4. Creating a complete ADR based on our discussion using the template from my repository
+1. Researching and presenting 3-5 viable options for this decision
+2. Identifying the key evaluation criteria that matter for this choice
+3. Building a systematic comparison grid evaluating each option against these criteria
+4. Discussing the trade-offs and helping me think through the implications
+5. Providing a clear recommendation with reasoning
+6. Creating a complete ADR using the template from my repository
 
-Let's start by exploring what options exist for this decision.
+Let's start by exploring what options exist and what criteria we should use to evaluate them.
 ```
 
 ## Example Usage
 
-**Full Research Prompt:**
+**Full Research and Analysis Prompt:**
 ```
 I need help making a decision for my homelab consolidation project and creating an ADR to document it.
 
@@ -51,19 +53,21 @@ I need help making a decision for my homelab consolidation project and creating 
 - Intermediate technical skills
 
 Please help me by:
-1. Researching and presenting the main options available
-2. Walking through the key considerations and trade-offs  
-3. Helping me think through the pros/cons of each option
-4. Creating a complete ADR based on our discussion using the template from my repository
+1. Researching and presenting 3-5 viable options for this decision
+2. Identifying the key evaluation criteria that matter for this choice
+3. Building a systematic comparison grid evaluating each option against these criteria
+4. Discussing the trade-offs and helping me think through the implications
+5. Providing a clear recommendation with reasoning
+6. Creating a complete ADR using the template from my repository
 
-Let's start by exploring what options exist for this decision.
+Let's start by exploring what options exist and what criteria we should use to evaluate them.
 ```
 
 ## Quick Decision Starters
 
 **When You Know Some Options:**
 ```
-Help me decide between [OPTION A], [OPTION B], and [OPTION C] for [DECISION TOPIC]. Research any other options I should consider, then help me work through the trade-offs and create an ADR documenting the final decision using my repository template.
+Help me systematically evaluate [OPTION A], [OPTION B], and [OPTION C] for [DECISION TOPIC]. Research any other viable options, build a comparison grid with relevant criteria, provide a recommendation, and create an ADR using my repository template.
 
 Context: [Brief situation description]
 Requirements: [Key needs]
@@ -71,7 +75,7 @@ Requirements: [Key needs]
 
 **When You're Starting from Scratch:**
 ```
-I need to [DESCRIBE GOAL] but I'm not sure what options exist. Please research the available approaches, help me understand the trade-offs, and create an ADR documenting the decision using my repository template.
+I need to [DESCRIBE GOAL] but I'm not sure what options exist. Please research the available approaches, identify evaluation criteria, build a systematic comparison, recommend the best option, and create an ADR using my repository template.
 
 Current situation: [What you have now]
 What you want to achieve: [End goal]
@@ -80,63 +84,93 @@ Constraints: [Limitations]
 
 ## What to Expect from the Conversation
 
-**Phase 1: Research & Options**
+**Phase 1: Options Research**
 - Claude will research current options and technologies
 - Present 3-5 viable approaches with brief explanations
-- Ask clarifying questions about your specific needs
+- Clarify your specific needs and constraints
 
-**Phase 2: Deep Dive Analysis**  
-- Detailed pros/cons for each realistic option
-- Cost comparisons and technical trade-offs
-- Discussion of how each fits your requirements
-- Questions to help you think through implications
+**Phase 2: Criteria Development**  
+- Identify key evaluation criteria based on your requirements
+- Customize criteria to your specific decision context
+- Ensure all important factors are captured
 
-**Phase 3: Decision Support**
-- Help you narrow down to the best choice
-- Discussion of implementation considerations
-- Risk assessment and mitigation strategies
+**Phase 3: Systematic Comparison**
+- Build a detailed comparison grid
+- Evaluate each option against each criterion
+- Provide ratings, explanations, or qualitative assessments
+- Highlight key trade-offs and differentiators
 
-**Phase 4: ADR Generation**
-- Complete, formatted ADR ready to copy
-- Uses the template from your repository
-- Includes all context from your conversation
-- Professional documentation of your reasoning
+**Phase 4: Discussion & Analysis**
+- Deep dive into the most promising options
+- Explore implementation considerations and risks
+- Discuss how each option fits your broader goals
+- Address questions and concerns about top choices
 
-## Tips for Better Research Conversations
+**Phase 5: Recommendation & ADR**
+- Clear recommendation with supporting reasoning
+- Complete, formatted ADR ready to copy to your documentation
+- Professional documentation following your repository template
+- Includes executive summary, decision grid, and recommendation
 
-**Be Honest About Your Knowledge Level:**
-- "I'm new to [TECHNOLOGY]"  
-- "I've heard of [OPTION] but don't understand the differences"
-- "I'm comfortable with [SKILL LEVEL]"
+## Tips for Better Decision Analysis
 
-**Share Your Priorities:**
-- Rank importance: cost vs performance vs ease-of-use
-- Mention deal-breakers: "Must have web UI" or "Can't require command line"
-- Time constraints: "Need to implement in next month"
+**Be Specific About Your Priorities:**
+- Rank importance: "Cost is more important than cutting-edge features"
+- Mention deal-breakers: "Must have web UI" or "Cannot require extensive training"
+- Time preferences: "Need quick implementation" vs "Can invest time for better long-term solution"
 
-**Provide Context:**
-- Mention related decisions you've already made
-- Share what worked/didn't work in your current setup
-- Describe your learning preferences
+**Provide Complete Context:**
+- Current pain points and what's working well
+- Related decisions you've already made
+- Future plans that might affect this decision
+- Budget ranges and resource constraints
 
-**Ask for Clarification:**
-- "Can you explain why [OPTION] is better for [USE CASE]?"
-- "What would I need to learn to implement [SOLUTION]?"
+**Ask for Clarification During Analysis:**
+- "Why is [OPTION] rated higher for [CRITERIA]?"
+- "What would change if I had a bigger budget?"
 - "How does this integrate with my existing setup?"
+- "What are the long-term implications of each choice?"
 
-## Sample Follow-up Questions
+## Sample Evaluation Criteria
 
-**During Research Phase:**
-- "Are there any newer options I should consider?"
-- "What do most people choose for this scenario?"
-- "Which option has the best long-term support?"
+**Technical Decisions:**
+- Cost (upfront and ongoing)
+- Performance/Capability
+- Complexity (implementation and maintenance)
+- Sustainability/Long-term viability
+- Integration with existing systems
+- Learning curve/Skills required
+- Community support and documentation
+- Scalability and growth potential
 
-**During Analysis Phase:**  
-- "How difficult would it be to change my mind later?"
-- "What are the common failure points with [OPTION]?"
-- "Which choice best fits my implementation approach?"
+**Business/Consulting Decisions:**
+- ROI and cost-effectiveness
+- Risk level (technical, business, security)
+- Time to implement and realize benefits
+- Resource requirements (people, budget, time)
+- Strategic alignment with goals
+- Vendor/supplier stability
+- Compliance and regulatory considerations
 
-**Before Final Decision:**
-- "What would you choose if this was your project?"
-- "What am I not thinking about that I should consider?"
-- "How does this decision affect my other planned changes?"
+## Advanced Usage
+
+**For Complex Multi-Criteria Decisions:**
+```
+This is a complex decision with multiple stakeholders. Please help me:
+1. Research all viable options thoroughly
+2. Develop weighted evaluation criteria (some factors are more important than others)
+3. Create a scoring system for the decision grid
+4. Consider both quantitative and qualitative factors
+5. Address potential objections to the recommended choice
+6. Create a comprehensive ADR suitable for executive review
+```
+
+**For Decisions with Unknown Options:**
+```
+I need to solve [PROBLEM] but I'm not even sure what types of solutions exist in this space. Please:
+1. Research the solution landscape and categorize approaches
+2. Identify 4-6 representative options across different categories
+3. Help me understand the trade-offs between different approaches
+4. Build a comparison framework appropriate for this decision
+5. Recommend the best path forward with clear reasoning
+```
